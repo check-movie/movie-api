@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    image: 'icecream_app'
+    ports:
+      - 8081:80
+    volumes:
+      - ./:/var/www/html
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+
+  db:
+
+    image: mariadb:focal
+    ports:
+      - 8083:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: wp
+      MYSQL_DATABASE: 'movie_db'
+
+  db2:
+
+    image: mariadb:focal
+    ports:
+      - 8082:3306
+    volumes:
+      - ./mysql2:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: wp
+      MYSQL_DATABASE: 'test_db'
+
