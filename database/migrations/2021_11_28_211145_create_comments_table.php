@@ -15,7 +15,16 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('movie_id')->nullable();
+            $table->text('opinion')->nullable();
+            $table->string('author')->nullable();
+            $table->string('author_avatar')->nullable();
             $table->timestamps();
+
+            $table->foreign('movie_id')
+                  ->references('id')
+                  ->on('movies')
+                  ->onDelete('cascade');
         });
     }
 

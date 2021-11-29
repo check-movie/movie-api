@@ -15,7 +15,20 @@ class CreateRatesTable extends Migration
     {
         Schema::create('rates', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('movie_id');
+            $table->string('title');
+            $table->integer('rate')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users');
+
+            $table->foreign('movie_id')
+                  ->references('id')
+                  ->on('movies')
+                  ->onDelete('cascade');
         });
     }
 
