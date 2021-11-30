@@ -17,6 +17,14 @@ class RatingService
         $this->movie = $movie;
     }
 
+    public function showMyRates($user)
+    {
+        $rates = $user->rates()->get();
+
+        return $rates;
+
+    }
+
     public function store($user, $movie_id, $rate)
     {
         $movie = $this->movie->findOrFail($movie_id);
@@ -33,7 +41,7 @@ class RatingService
 
     }
 
-    public function update($user, $rate_id, array $data)
+    public function update($rate_id, array $data)
     {
 
         $rates = $this->rate->findOrFail($rate_id);
@@ -42,13 +50,11 @@ class RatingService
 
         $rates->update($data);
 
-        $rate = $rates->rate;
-
-        $this->calculate($movie_id, $rate);
+        $this->calculate($movie_id);
     }
 
 
-    public function calculate($movie_id, $rate)
+    public function calculate($movie_id)
     {
         $times_rate = null;
 
@@ -59,7 +65,6 @@ class RatingService
 
         for($i=0; $i<=5; ++$i)
         {
-
             $rates = Rate::where([
                 'title' => $movie->title,
                 'rate'     => $i
@@ -87,6 +92,5 @@ class RatingService
                         'rates_time' => $total_ratings]);
     }
 }
-
 
 ?>

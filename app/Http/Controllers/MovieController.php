@@ -28,17 +28,24 @@ class MovieController extends Controller
         return response()->json(['The movie has been added']);
     }
 
+    public function showMyMoviesWithComments()
+    {
+        $user = auth()->user();
+
+        return $this->movie->showMyMoviesWithComments($user);
+    }
+
+    public function showMyMoviesWithRates()
+    {
+        $user = auth()->user();
+
+        return $this->movie->showMyMoviesWithRates($user);
+    }
+
     public function showMyMovies()
     {
         $user = auth()->user();
 
         return $this->movie->showMyMovies($user);
-    }
-
-    public function showMoviesWithComments($movie_id)
-    {
-        $user = auth()->user();
-
-        return $this->movie->showMoviesWithComments($user, $movie_id);
     }
 }
