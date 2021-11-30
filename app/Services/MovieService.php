@@ -55,20 +55,4 @@ class MovieService
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
