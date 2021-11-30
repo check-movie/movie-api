@@ -26,10 +26,19 @@ class MovieService
         return $movies;
     }
 
-    public function showMoviesWithComments($user, $movie_id)
+    public function showMyMoviesWithComments($user)
     {
         $movies = $this->movie->with('comments')
-                              ->where(['id' => $movie_id,
+                              ->where([
+                                  'user_id' => $user->id])
+                                  ->get();
+        return $movies;
+    }
+
+    public function showMyMoviesWithRates($user)
+    {
+        $movies = $this->movie->with('rates')
+                              ->where([
                                   'user_id' => $user->id])
                                   ->get();
         return $movies;
@@ -43,7 +52,6 @@ class MovieService
         $this->movie->fill($attributes);
 
         $this->movie->saveOrFail();
-
     }
 }
 

@@ -21,6 +21,14 @@ class CommentController extends Controller
 
     }
 
+    public function update(StoreCommentRequest $request, $comment_id)
+    {
+        $this->comment->update($comment_id, $request->all());
+    }
 
+    public function destroy($comment_id)
+    {
+        $this->comment->destroy($comment_id);
 
+    }
 }

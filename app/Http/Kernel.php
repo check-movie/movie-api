@@ -63,5 +63,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'has_rated' => \App\Http\Middleware\HasRatedMiddleware::class,
+        'is_movie_owner' => \App\Http\Middleware\IsMovieOwnerMiddleware::class,
+        'own_grade' => \App\Http\Middleware\IsMyGradeMiddleware::class,
+        'has_stored' => \App\Http\Middleware\HasStoredMovie::class,
+        'is_comment_owner' => \App\Http\Middleware\IsCommentOwner::class
     ];
 }
