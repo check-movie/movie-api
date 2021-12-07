@@ -17,13 +17,13 @@ class CreateMoviesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title');
-            $table->string('director');
+            $table->string('origin_title');
             $table->string('poster');
             $table->string('imdb_rating');
             $table->float('check_movie_rating')->default(0.00);
             $table->integer('rates_time')->default(0);
             $table->text('plot');
-            $table->string('actors');
+            $table->string('homepage');
             $table->string('release_date');
 
             $table->timestamps();

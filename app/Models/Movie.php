@@ -11,11 +11,11 @@ class Movie extends Model
 
     protected $fillable = [
         'title',
-        'director',
+        'origin_title',
         'poster',
         'imdb_rating',
         'plot',
-        'actors',
+        'homepage',
         'release_date',
         'user_id',
     ];

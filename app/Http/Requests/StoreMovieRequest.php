@@ -25,11 +25,11 @@ class StoreMovieRequest extends FormRequest
     {
         return [
             'title'        => 'required',
-            'director'     => 'required',
+            'origin_title' => 'required',
             'poster'       => 'required',
             'imdb_rating'  => 'required',
             'plot'         => 'required',
-            'actors'       => 'required',
+            'homepage'     => 'required',
             'release_date' => 'required',
             'my_rate'      => 'integer',
 
