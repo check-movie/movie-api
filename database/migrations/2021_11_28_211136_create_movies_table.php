@@ -19,7 +19,8 @@ class CreateMoviesTable extends Migration
             $table->string('title');
             $table->string('origin_title');
             $table->string('poster');
-            $table->string('imdb_rating');
+            $table->string('tmdb_rating');
+            $table->string('tmdb_total_rates');
             $table->float('check_movie_rating')->default(0.00);
             $table->integer('rates_time')->default(0);
             $table->text('plot');
