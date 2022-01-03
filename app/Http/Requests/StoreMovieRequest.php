@@ -24,14 +24,15 @@ class StoreMovieRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'        => 'required',
-            'origin_title' => 'required',
-            'poster'       => 'required',
-            'imdb_rating'  => 'required',
-            'plot'         => 'required',
-            'homepage'     => 'required',
-            'release_date' => 'required',
-            'my_rate'      => 'integer',
+            'title'            => 'required',
+            'origin_title'     => 'string',
+            'poster'           => 'string',
+            'tmdb_rating'      => 'string',
+            'tmdb_total_rates' => 'string',
+            'plot'             => 'string',
+            'homepage'         => 'string',
+            'release_date'     => 'string',
+            'my_rate'          => 'integer',
 
         ];
     }

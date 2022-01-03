@@ -19,6 +19,18 @@ class MovieService
         return $this->movie->all();
     }
 
+    public function show($movie_id)
+    {
+        $this->movie->findOrFail($movie_id);
+
+        $movie = $this->movie->with('comments', 'rates')
+                             ->where('id', $movie_id)
+                             ->get();
+
+        return $movie;
+
+    }
+
     public function showMyMovies($user)
     {
         $movies = $user->movies()->get();
