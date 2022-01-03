@@ -17,15 +17,15 @@ class CreateMoviesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title');
-            $table->string('origin_title');
-            $table->string('poster');
-            $table->string('tmdb_rating');
-            $table->string('tmdb_total_rates');
+            $table->string('origin_title')->nullable();
+            $table->string('poster')->nullable();
+            $table->string('tmdb_rating')->nullable();
+            $table->string('tmdb_total_rates')->nullable();
             $table->float('check_movie_rating')->default(0.00);
             $table->integer('rates_time')->default(0);
-            $table->text('plot');
-            $table->string('homepage');
-            $table->string('release_date');
+            $table->text('plot')->nullable();
+            $table->string('homepage')->nullable();
+            $table->string('release_date')->nullable();
 
             $table->timestamps();
 
