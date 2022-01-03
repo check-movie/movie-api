@@ -28,6 +28,11 @@ class MovieController extends Controller
         return response()->json(['The movie has been added']);
     }
 
+    public function show($movie_id)
+    {
+        return $this->movie->show($movie_id);
+    }
+
     public function showMyMoviesWithComments()
     {
         $user = auth()->user();

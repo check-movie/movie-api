@@ -41,9 +41,10 @@ Route::middleware(['jwt.auth'])->group(function () {
     Route::post('movie/store',         [ MovieController::class, 'store'])
         ->middleware('has_stored');
 
-    Route::get('movies/show',          [ MovieController::class, 'showMyMovies']);
-    Route::get('movies/show/comments', [ MovieController::class, 'showMyMoviesWithComments']);
-    Route::get('movies/show/rates',    [ MovieController::class, 'showMyMoviesWithRates']);
+    Route::get('movies/show',            [ MovieController::class, 'showMyMovies']);
+    Route::get('movies/show/comments',   [ MovieController::class, 'showMyMoviesWithComments']);
+    Route::get('movies/show/rates',      [ MovieController::class, 'showMyMoviesWithRates']);
+    Route::get('movies/{movie_id}/show', [ MovieController::class, 'show']);
 
     Route::post('movie/rate/{rate_id}/update', [ RateController::class, 'update'])
         ->middleware('own_grade');
